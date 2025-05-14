@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Doリスト</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-Doリスト</h1>
+      <div class="todo-input">
+        <input type="text" id="taskInput" placeholder="新しいタスクを入力" />
+        <button id="addTask">追加</button>
+      </div>
+      <ul id="taskList" role="list" aria-busy="true">
+        <!-- タスクはJavaScriptで動的に追加されます -->
+      </ul>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
