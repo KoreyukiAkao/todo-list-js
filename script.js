@@ -16,3 +16,10 @@ addTaskButton.addEventListener("click", function () {
     taskInput.value = "";
   }
 });
+
+// タスクの完了状態を切り替える（既存・新規タスク両方対応）
+taskList.addEventListener("click", function (e) {
+  if (e.target && e.target.nodeName === "LI") {
+    e.target.classList.toggle("completed");
+  }
+});
