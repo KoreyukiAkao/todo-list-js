@@ -15,7 +15,7 @@ addTaskButton.addEventListener("click", function () {
 
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "X";
-    deleteButton.className = "deleteButton"
+    deleteButton.className = "deleteBtn"
     taskItem.appendChild(deleteButton)
   }
 });
@@ -24,7 +24,7 @@ taskList.addEventListener("click", function (e) {
   console.log(e);
   if (e.target && e.target.nodeName === "LI") {
     e.target.classList.toggle("completed");
-  }else if (e.target && e.target.className === "deleteButton") {
+  }else if (e.target && e.target.className === "deleteBtn") {
     confirm('Are you sure you want to delete this task?');
     e.target.parentElement.remove();
   }
