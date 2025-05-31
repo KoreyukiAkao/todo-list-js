@@ -2,30 +2,30 @@ let taskInput = document.getElementById("taskInput");
 let addTaskButton = document.getElementById("addTask");
 let taskList = document.getElementById("taskList");
 
-// When the addTaskButton gets a click,
-// if the taskInput value is empty,
-// show a message: “Please enter a task.”
-// stop.
-// else,
-// make a new list item (li).
-// put the taskInput value into the list item.
-// add the list item to the taskList.
-// clear the taskInput value.
 addTaskButton.addEventListener("click", function () {
   if (taskInput.value === "") {
     alert("Please enter a task.");
     return;
   } else {
-    let li = document.createElement("li");
-    li.textContent = taskInput.value;
-    taskList.appendChild(li);
+    let taskItem = document.createElement("li");
+    taskItem.textContent = taskInput.value;
+    taskItem.id = "taskItem-${Date.now()}"
+    taskList.appendChild(taskItem);
     taskInput.value = "";
+
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "X";
+    deleteButton.className = "deleteBtn"
+    taskItem.appendChild(deleteButton)
   }
 });
 
-// Toggle the completion status of tasks (for both existing and new tasks)
 taskList.addEventListener("click", function (e) {
+  console.log(e);
   if (e.target && e.target.nodeName === "LI") {
     e.target.classList.toggle("completed");
+  }else if (e.target && e.target.className === "deleteBtn") {
+    confirm('Are you sure you want to delete this task?');
+    e.target.parentElement.remove();
   }
 });
