@@ -21,11 +21,11 @@ addTaskButton.addEventListener("click", function () {
 });
 
 taskList.addEventListener("click", function (e) {
-  console.log(e);
   if (e.target && e.target.nodeName === "LI") {
     e.target.classList.toggle("completed");
   }else if (e.target && e.target.className === "deleteBtn") {
-    confirm('Are you sure you want to delete this task?');
-    e.target.parentElement.remove();
+    if(confirm('Are you sure you want to delete this task?')){
+      e.target.parentElement.remove();
+    };
   }
 });
